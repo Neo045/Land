@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REPLACE_WITH_MOVIE_TITLE</title>
+  
+  <style>
+    /* ---------- Base / keep original look ---------- */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      padding: 0;
+      margin: 0;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header poster area (big) */
+    .hero {
+      width: 100%;
+      max-height: 60vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-height: 60vh;
+      display: block;
+      filter: saturate(1.02);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 16px;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .movie-card {
+      width: calc(100% - 32px);
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      margin: -60px auto 30px; /* lifted overlap effect */
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .movie-title {
+      font-size: 22px;
+      margin: 6px 0 8px;
+      font-weight: 700;
+    }
+
+    .movie-meta {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .watch-btn {
+      display: inline-block;
+      background: #e50914;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(229,9,20,0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .watch-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(229,9,20,0.22); }
+
+    /* small note */
+    .note {
+      color: #777;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    /* keep developer modal and menu styles from original (slightly compacted) */
+    .menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2000;
+    }
+    .menu-btn {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #333;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    .menu-btn:hover { transform: scale(1.05); }
+    .menu-content {
+      display: none;
+      position: absolute;
+      top: 58px;
+      left: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+    .menu-content a { display: block; padding: 12px 14px; text-decoration: none; color: #333; }
+    .menu.show .menu-content { display: block; animation: fadeInScale 0.25s ease forwards; }
+
+    /* Modal */
+    #devModal { display: none; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.45); z-index: 3000; }
+    #devModalContent { background: #fff; width: 92%; max-width: 360px; margin: 12% auto; padding: 18px; border-radius: 12px; text-align: center; box-shadow: 0 12px 36px rgba(0,0,0,0.25); }
+    #closeModal { position: absolute; top: 10px; right: 12px; background: #ff4d4d; border: none; color: white; font-size: 1em; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; }
+
+    footer { text-align:center; padding: 22px 10px; color: #777; font-size: 13px; }
+    @keyframes fadeInScale { from { opacity: 0; transform: translateY(-6px) scale(0.98);} to { opacity:1; transform: translateY(0) scale(1);} }
+
+    /* responsiveness */
+    @media (max-width:600px) {
+      .movie-title { font-size: 18px; }
+      .watch-btn { width: 90%; padding: 14px 10px; }
+      .movie-card { margin: -48px 12px 20px; padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO / Poster (BIG) -->
+  <header class="hero" role="banner">
+    <!-- REPLACE: poster image URL -->
+    <img src="https://i.postimg.cc/P5fXZWy6/posters-d15c434b34ea701e9699cd84dd7e423a-goplay-800-1200.webp" />
+    <div class="hero-overlay" aria-hidden="true"></div>
+  </header>
+
+  <!-- MAIN MOVIE CARD (keeps page look, single movie info + button) -->
+  <main>
+    <section class="movie-card" role="main">
+      <h1 class="movie-title">Little Miss Chaos (2025) Bengali WEB-DL 1080p | Full Movie Download</h1> <!-- REPLACE: movie title -->
+      <div class="movie-meta">Quality: 1080p • Duration: 1h 14min • Language: Bangla</div>
+
+      <!-- Single Watch/Download link (replace href) -->
+      <a class="watch-btn" id="watchBtn" href="https://drive.google.com/file/d/1kNCVZ1LJDsWeb_YqWtSwI_nuOAeEfJqh/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+        ▶ Watch / Download
+      </a>
+  </main>
+
+  <!-- Keep original menu & modal (unchanged content, only structure) -->
+  <!-- Premium 3 Dot Menu -->
+  <div class="menu">
+    <button class="menu-btn" aria-label="menu">⋮</button>
+    <div class="menu-content">
+      <a href="https://www.facebook.com/ShihabRahman.056" target="_blank">🌐 Facebook</a>
+      <a href="https://www.instagram.com/shihabrahman.056/" target="_blank">📸 Instagram</a>
+      <a href="https://twitter.com/ShihabRahman056" target="_blank">🐦 Twitter</a>
+    </div>
+  </div>
+
+  <!-- Developer Modal -->
+  <div id="devModal" aria-hidden="true">
+    <div id="devModalContent">
+      <button id="closeModal" aria-label="Close modal">&times;</button>
+      <h2>👨‍💻 Developer</h2>
+      <p><strong>This Webpage Is Made By Shihab Rahman</strong></p>
+      <p>Thanks For Coming ✨</p>
+      <p><strong>Telegram:</strong> <a href="https://t.me/ShihabRahman04/" target="_blank">Shihab Rahman</a></p>
+      <p><strong>Website:</strong> <a href="https://shihabrahman1.blogspot.com/" target="_blank">Shihab Rahman</a></p>
+    </div>
+  </div>
+
+  <footer>© Made By Neo</footer>
+
+  <!-- Script: keep functionality (menu, modal) + small helper to copy link -->
+  <script>
+    // Menu toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const menu = document.querySelector(".menu");
+    menuBtn.onclick = (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("show");
+    };
+    window.addEventListener("click", function(event) {
+      if (!event.target.matches('.menu-btn')) {
+        if (menu.classList.contains('show')) menu.classList.remove('show');
+      }
+    });
+
+    // Modal logic (same timing as original)
+    const devModal = document.getElementById("devModal");
+    const closeModal = document.getElementById("closeModal");
+    window.onload = function () {
+      setTimeout(() => { devModal.style.display = "block"; devModal.setAttribute('aria-hidden','false'); }, 1000);
+    };
+    closeModal.onclick = () => { devModal.style.display = "none"; devModal.setAttribute('aria-hidden','true'); };
+    window.onclick = function (event) { if (event.target === devModal) { devModal.style.display = "none"; devModal.setAttribute('aria-hidden','true'); } };
+
+    // small helper: if user clicks watch-btn, open link in new tab (already target="_blank")
+    // also allow clicking raw link to copy
+    const rawLinkEl = document.getElementById('rawLink');
+    rawLinkEl.style.cursor = 'pointer';
+    rawLinkEl.title = 'Click to copy link';
+    rawLinkEl.onclick = function() {
+      const text = rawLinkEl.textContent.trim();
+      if (!navigator.clipboard) {
+        // fallback
+        const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); alert('Link copied to clipboard'); } catch(e){ alert('Copy failed'); }
+        ta.remove();
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => { alert('Link copied to clipboard'); }).catch(()=>{ alert('Copy failed'); });
+    };
+  </script>
+
+</body>
+</html>
