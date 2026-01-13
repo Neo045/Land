@@ -3,163 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free IPTV Downloads</title>
+<title>Free – Download</title>
 
 <style>
-:root{
-    --bg:#f4f6fb;
-    --card:#fff;
-    --text:#111;
-}
-body.dark{
-    --bg:#0e1117;
-    --card:#161b22;
-    --text:#e6edf3;
-}
 body{
     margin:0;
-    font-family:system-ui;
-    background:var(--bg);
-    color:var(--text);
-    transition:.3s;
+    font-family:system-ui,-apple-system;
+    background:#f7f9fc;
+    color:#222;
 }
-.container{max-width:900px;margin:auto;padding:30px;}
-.toggle{
-    position:fixed;top:15px;right:15px;
-    background:var(--card);
-    padding:10px 14px;border-radius:10px;
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+header{
+    font-size:22px;
+    font-weight:700;
+}
+.hero{
+    margin-top:40px;
+    text-align:center;
+}
+.hero h1{
+    font-size:36px;
+}
+.hero span{
+    color:#0aa6b2;
+}
+.version{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 14px;
+    border-radius:20px;
+    background:#e6f7f8;
+    color:#0aa6b2;
+    font-weight:600;
+}
+.hero p{
+    margin-top:15px;
+    font-size:18px;
+    color:#555;
+}
+
+/* BUTTONS */
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.btn-primary{
+    background:linear-gradient(135deg,#0aa6b2,#1677ff);
+    color:#fff;
+    padding:14px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+}
+.btn-adult{
+    background:#fff;
+    border:1px solid #ff4d6d;
+    color:#ff4d6d;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:600;
     cursor:pointer;
 }
-.app{
-    background:var(--card);
-    padding:22px;border-radius:20px;
-    display:flex;gap:18px;
-    align-items:center;
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-    margin-bottom:25px;
+
+/* SLIDER */
+.slider-section{
+    margin-top:60px;
 }
-.app img{width:70px;border-radius:16px;}
-.meta{font-size:14px;color:#888;}
-.btn{
-    margin-left:auto;
-    background:linear-gradient(135deg,#0aa6b2,#1677ff);
-    color:#fff;padding:14px 22px;
-    border-radius:14px;text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+.slider-title{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:15px;
 }
-.btn:hover{transform:scale(1.05);}
+.slider{
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    scroll-snap-type:x mandatory;
+}
+.slider img{
+    width:220px;
+    border-radius:14px;
+    scroll-snap-align:start;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* WARNING MODAL */
 .modal{
-    display:none;position:fixed;inset:0;
-    background:rgba(0,0,0,.7);
-    align-items:center;justify-content:center;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
 }
-.modal-box{
-    background:#fff;color:#111;
-    padding:25px;border-radius:16px;
-    max-width:320px;text-align:center;
+.modal-content{
+    background:#fff;
+    padding:25px;
+    border-radius:16px;
+    max-width:320px;
+    text-align:center;
 }
-.modal button{
-    margin-top:15px;padding:10px 20px;
+.modal-content h3{
+    color:#ff4d6d;
 }
-@media(max-width:600px){
-    .app{flex-direction:column;text-align:center;}
-    .btn{margin-left:0;width:100%;}
+.modal-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+}
+.modal-buttons a,
+.modal-buttons button{
+    padding:10px 16px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+.confirm{
+    background:#ff4d6d;
+    color:#fff;
+    text-decoration:none;
+}
+.cancel{
+    background:#eee;
+}
+
+/* FOOTER */
+footer{
+    margin:60px 0 20px;
+    text-align:center;
+    color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleDark()">🌓</div>
-
 <div class="container">
 
-<!-- NORMAL -->
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png">
-<div>
-<h2>Free IPTV (Normal)</h2>
-<div class="meta" id="n-meta">Loading...</div>
-<div class="meta" id="n-sha"></div>
-<div class="meta">Downloads: <span id="n-count">0</span></div>
-</div>
-<a class="btn" id="n-btn">⬇ Download</a>
+<header>📺 Free IPTV</header>
+
+<section class="hero">
+    <h1>Transform Your <span>Android IPTV</span></h1>
+    <div class="version">Version v1.0</div>
+
+    <p>Choose the version that fits you best. Clean, fast & secure.</p>
+
+    <div class="buttons">
+        <a class="btn-primary"
+           href="https://github.com/Neo045/Apps/raw/refs/heads/main/Free_IPTV_Normal.apk"
+           download>
+           ⬇ Download Normal App
+        </a>
+
+        <button class="btn-adult" onclick="openWarning()">
+            🔞 Download Adult Version
+        </button>
+    </div>
+</section>
+
+<!-- HOW TO INSTALL -->
+<section class="slider-section">
+    <div class="slider-title">⚙️ How to Install</div>
+    <div class="slider">
+        <img src="https://i.postimg.cc/x8z8HV5j/Screenshot-2026-01-13-21-17-08-314-com-android-vending-edit.jpg">
+        <img src="https://i.postimg.cc/MG9DTNd1/Screenshot_2026_01_13_21_17_22_281_com_android_vending_edit.jpg">
+        <img src="https://i.postimg.cc/VNKR6pDj/IMG_20260113_211810.jpg">
+    </div>
+</section>
+
+<!-- APP SCREENSHOTS -->
+<section class="slider-section">
+    <div class="slider-title">📱 App Screenshots</div>
+    <div class="slider">
+        <img src="https://i.postimg.cc/RFvkrkqP/SS_1.jpg">
+        <img src="https://i.postimg.cc/tT9K0K72/SS_2.jpg">
+        <img src="https://i.postimg.cc/Kzm6X64N/SS_3.jpg">
+        <img src="https://i.postimg.cc/B6JrWrtN/SS_4.jpg">
+    </div>
+</section>
+
+<footer>
+    © 2026 Free IPTV • User Friendly • Secure
+</footer>
+
 </div>
 
-<!-- ADULT -->
-<div class="app">
-<img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f51e.png">
-<div>
-<h2>Free IPTV (Adult)</h2>
-<div class="meta" id="a-meta">Loading...</div>
-<div class="meta" id="a-sha"></div>
-<div class="meta">Downloads: <span id="a-count">0</span></div>
-</div>
-<a class="btn" onclick="showAdult()">⬇ Download</a>
-</div>
+<!-- WARNING MODAL -->
+<div class="modal" id="warningModal">
+    <div class="modal-content">
+        <h3>🔞 Adult Content Warning</h3>
+        <p>
+            This version contains adult content.
+            You must be 18+ to proceed.
+        </p>
 
-</div>
-
-<!-- ADULT MODAL -->
-<div class="modal" id="adultModal">
-<div class="modal-box">
-<h3>🔞 Adult Content</h3>
-<p>You must be 18+ to continue.</p>
-<button onclick="confirmAdult()">I’m 18+</button>
-<button onclick="closeAdult()">Cancel</button>
-</div>
+        <div class="modal-buttons">
+            <a class="confirm"
+               href="https://github.com/Neo045/Apps/raw/refs/heads/main/Free_IPTV_Adult.apk"
+               download>
+               I’m 18+
+            </a>
+            <button class="cancel" onclick="closeWarning()">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <script>
-const repo="Neo045/Apps";
-const isDark=localStorage.dark==="1";
-if(isDark)document.body.classList.add("dark");
-
-function toggleDark(){
- document.body.classList.toggle("dark");
- localStorage.dark=document.body.classList.contains("dark")?"1":"0";
+function openWarning(){
+    document.getElementById("warningModal").style.display="flex";
 }
-
-function arch(){
- const ua=navigator.userAgent;
- if(ua.includes("arm64")||ua.includes("aarch64"))return "ARM64";
- return "ARM";
-}
-
-async function sha256(url){
- const buf=await fetch(url).then(r=>r.arrayBuffer());
- const hash=await crypto.subtle.digest("SHA-256",buf);
- return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("");
-}
-
-async function load(apk,meta,btn,sha,countKey){
- const r=await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
- const d=await r.json();
- const a=d.assets.find(x=>x.name===apk);
- const size=(a.size/1048576).toFixed(1);
- document.getElementById(meta).innerText=
- `v${d.tag_name} • ${size}MB • ${arch()}`;
- document.getElementById(countKey).innerText=
- localStorage[countKey]||0;
-
- const hash=await sha256(a.browser_download_url);
- document.getElementById(sha).innerText="SHA256: "+hash.slice(0,32)+"…";
-
- document.getElementById(btn).onclick=()=>{
-  localStorage[countKey]=(Number(localStorage[countKey]||0)+1);
-  location.href=a.browser_download_url;
- }
-}
-
-load("Free_IPTV_Normal.apk","n-meta","n-btn","n-sha","n-count");
-
-function showAdult(){document.getElementById("adultModal").style.display="flex";}
-function closeAdult(){adultModal.style.display="none";}
-async function confirmAdult(){
- adultModal.style.display="none";
- await load("Free_IPTV_Adult.apk","a-meta","a-btn","a-sha","a-count");
- document.getElementById("a-btn").click();
+function closeWarning(){
+    document.getElementById("warningModal").style.display="none";
 }
 </script>
 
