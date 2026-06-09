@@ -254,10 +254,25 @@ footer{
     text-align:center;
     color:#777;
 }
+
+.coffee-card{margin-top:25px;padding:18px;border-radius:16px;background:#fff7e6;border:1px solid #ffd591;text-align:center}
+.coffee-card a{display:inline-block;margin-top:10px;padding:10px 18px;background:#ffb703;color:#000;text-decoration:none;border-radius:10px;font-weight:700}
+.coffee-float{position:fixed;right:15px;bottom:15px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;text-decoration:none;font-size:22px;background:#ffb703;z-index:9999;box-shadow:0 0 15px rgba(255,183,3,.5)}
+.top-banner{position:fixed;top:-120px;left:50%;transform:translateX(-50%);width:92%;max-width:700px;background:linear-gradient(135deg,#ffb703,#ffd166);color:#111;padding:14px 18px;border-radius:0 0 18px 18px;box-shadow:0 8px 25px rgba(0,0,0,.25);z-index:99998;transition:.6s ease}
+.top-banner.show{top:0}
+.top-banner .close{float:right;cursor:pointer;font-weight:bold}
+.top-banner a{color:#111;font-weight:700}
+
 </style>
 </head>
 
 <body>
+<div class="top-banner" id="topBanner">
+<span class="close" onclick="closeTopBanner()">✕</span>
+☕ <strong>Support Future Updates</strong> —
+<a href="https://bhokto.com.bd/pay/shihabrahman" target="_blank">Buy Me Coffee ❤️</a>
+</div>
+
 
 <!-- 🔥 PRELOADER START -->
 <div id="preloader">
@@ -310,6 +325,13 @@ footer{
     </div>
 </section>
 
+<div class="coffee-card">
+<h3>☕ Support Future Updates</h3>
+<p>If you enjoy this IPTV project, consider buying me a coffee ❤️</p>
+<a href="https://bhokto.com.bd/pay/shihabrahman" target="_blank">Buy Me Coffee</a>
+</div>
+
+
 <!-- HOW TO INSTALL -->
 <section class="slider-section">
     <div class="slider-title">⚙️ See How to Fix Install Problem</div>
@@ -333,8 +355,22 @@ footer{
 
 <footer>
     © 2026 Free IPTV📺 • User Friendly • Secure
-</footer>
-<div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-BZ4cz2b58Wcd57wW-3.gif' border='0' alt='web counter free'></a><script type='text/javascript' src=''></script></div>
+<br><br><a href="https://bhokto.com.bd/pay/shihabrahman" target="_blank">☕ Buy Me Coffee</a></footer>
+<div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-BZ4cz2b58Wcd57wW-3.gif' border='0' alt='web counter free'></a><script type='text/javascript' src=''>
+function closeTopBanner(){
+ document.getElementById('topBanner').classList.remove('show');
+ localStorage.setItem('topBannerSeen',Date.now());
+}
+window.addEventListener('load',()=>{
+ const seen=localStorage.getItem('topBannerSeen');
+ if(!seen || (Date.now()-parseInt(seen))>86400000){
+   setTimeout(()=>{
+     document.getElementById('topBanner').classList.add('show');
+   },1500);
+ }
+});
+
+</script></div>
 </div>
 
 <!-- WARNING MODAL -->
@@ -369,7 +405,24 @@ window.addEventListener("load", ()=>{
     document.getElementById("preloader").style.display="none";
   },800);
 });
+
+function closeTopBanner(){
+ document.getElementById('topBanner').classList.remove('show');
+ localStorage.setItem('topBannerSeen',Date.now());
+}
+window.addEventListener('load',()=>{
+ const seen=localStorage.getItem('topBannerSeen');
+ if(!seen || (Date.now()-parseInt(seen))>86400000){
+   setTimeout(()=>{
+     document.getElementById('topBanner').classList.add('show');
+   },1500);
+ }
+});
+
 </script>
 
+
+<a class="coffee-float" href="https://bhokto.com.bd/pay/shihabrahman" target="_blank">☕</a>
 </body>
+
 </html>
